@@ -1,4 +1,5 @@
-import { Schema, model } from 'mongoose';
+const mongoose = require('mongoose');
+const { Schema, model } = mongoose
 
 const userSchema = new Schema({
     name: {
@@ -77,8 +78,8 @@ const orderSchema = new Schema({
 })
 
 
-const User = model('User', userSchema);
-const Product = model('Product', productSchema);
-const Order = model('Order', orderSchema);
+const User = mongoose.model('User', userSchema);
+const Product = mongoose.model('Product', productSchema);
+const Order = mongoose.model('Order', orderSchema);
 
-module.exports({ Order, User, Product })
+module.exports = { Order, User, Product }
